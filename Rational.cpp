@@ -109,19 +109,58 @@ void Rational::scan() {
     nan = (denumerator == 0);
 }
 
-int main() {
-    Rational x; // 1/1
-    Rational y(10, 5); // 10/5
-    Rational z(7);
-
-    std::cout << "x.eq(y): ";
-    std::cout << x.eq(y) << std::endl;
-    std::cout << "x.neq(y): ";
-    std::cout << x.neq(y) << std::endl;
-    std::cout << "z.neg(): ";
-    z.neg().print();
-
-    Rational n(10, 0);
-    n.mul(Rational(1)).print();
-    Rational(1).mul(n).print();
+Rational Rational::operator+(Rational r) {
+    return sum(r);
 }
+
+Rational Rational::operator-(Rational r) {
+    return sub(r);
+}
+
+Rational Rational::operator*(Rational r) {
+    return mul(r);
+}
+
+Rational Rational::operator/(Rational r) {
+    return div(r);
+}
+
+bool Rational::operator==(Rational r) {
+    return eq(r);
+}
+
+bool Rational::operator!=(Rational r) {
+    return neq(r);
+}
+bool Rational::operator<(Rational r) {
+    return l(r);
+}
+
+bool Rational::operator<=(Rational r) {
+    return leq(r);
+}
+
+bool Rational::operator>(Rational r) {
+    return g(r);
+}
+
+bool Rational::operator>=(Rational r) {
+    return geq(r);
+}
+
+std::ostream& operator<<(std::ostream& output, const Rational& r) {
+    if (r.nan) {
+        output << "NAN";
+    }
+    else {
+        output << r.numerator << "/" << r.denumerator;
+    }
+    return output;
+}
+
+std::istream& operator>>(std::istream& input, Rational& r) {
+    input >> r.numerator >> r.denumerator;
+    r.nan = (r.denumerator == 0);
+    return input;
+}
+
