@@ -1,4 +1,4 @@
-#include "Rational.h"
+#include "header.h"
 #include <iostream>
 
 int main() {
