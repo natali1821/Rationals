@@ -1,5 +1,6 @@
 #ifndef H_HEADER_INCLUDED
 #define H_HEADER_INCLUDED
+#include <iostream>
 
 class Rational {
 public:
