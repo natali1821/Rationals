@@ -33,6 +33,21 @@ public:
     //functions of input and output
     void scan();
     void print();
+
+    //operators
+    Rational operator+(Rational);
+    Rational operator-(Rational);
+    Rational operator*(Rational);
+    Rational operator/(Rational);
+    bool operator==(Rational);
+    bool operator!=(Rational);
+    bool operator<(Rational);
+    bool operator<=(Rational);
+    bool operator>(Rational);
+    bool operator>=(Rational);
 };
+std::ostream& operator<<(std::ostream&, const Rational&);
+std::istream& operator>>(std::istream&, Rational&);
+
 #endif // H_HEADER_INCLUDED
 
